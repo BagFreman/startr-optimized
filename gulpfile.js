@@ -1,31 +1,31 @@
 let preprocessor = 'sass', // Preprocessor (sass, less, styl); 'sass' also work with the Scss syntax in blocks/ folder.
-		fileswatch   = 'html,htm,txt,json,md,woff2' // List of files extensions for watching & hard reload
+	fileswatch = 'html,htm,txt,json,md,woff2' // List of files extensions for watching & hard reload
 
 import pkg from 'gulp'
 const { src, dest, parallel, series, watch } = pkg
 
-import browserSync   from 'browser-sync'
-import bssi          from 'browsersync-ssi'
-import ssi           from 'ssi'
+import browserSync from 'browser-sync'
+import bssi from 'browsersync-ssi'
+import ssi from 'ssi'
 import webpackStream from 'webpack-stream'
-import webpack       from 'webpack'
-import TerserPlugin  from 'terser-webpack-plugin'
-import gulpSass      from 'gulp-sass'
+import webpack from 'webpack'
+import TerserPlugin from 'terser-webpack-plugin'
+import gulpSass from 'gulp-sass'
 import * as dartSass from 'sass'
-const  sass          = gulpSass(dartSass)
-import sassglob      from 'gulp-sass-glob'
-import less          from 'gulp-less'
-import lessglob      from 'gulp-less-glob'
-import styl          from 'gulp-stylus'
-import stylglob      from 'gulp-noop'
-import postCss       from 'gulp-postcss'
-import cssnano       from 'cssnano'
-import autoprefixer  from 'autoprefixer'
-import imagemin      from 'gulp-imagemin'
-import changed       from 'gulp-changed'
-import concat        from 'gulp-concat'
-import rsync         from 'gulp-rsync'
-import {deleteAsync} from 'del'
+const sass = gulpSass(dartSass)
+import sassglob from 'gulp-sass-glob'
+import less from 'gulp-less'
+import lessglob from 'gulp-less-glob'
+import styl from 'gulp-stylus'
+import stylglob from 'gulp-noop'
+import postCss from 'gulp-postcss'
+import cssnano from 'cssnano'
+import autoprefixer from 'autoprefixer'
+import imagemin from 'gulp-imagemin'
+import changed from 'gulp-changed'
+import concat from 'gulp-concat'
+import rsync from 'gulp-rsync'
+import { deleteAsync } from 'del'
 
 function browsersync() {
 	browserSync.init({
@@ -93,22 +93,13 @@ function styles() {
 		.pipe(browserSync.stream())
 }
 
-function images() {
-	return src(['app/images/src/**/*'], { encoding: false })
-		.pipe(changed('app/images/dist'))
-		.pipe(imagemin())
-		.pipe(dest('app/images/dist'))
-		.pipe(browserSync.stream())
-}
-
 function buildcopy() {
 	return src([
 		'{app/js,app/css}/*.min.*',
 		'app/images/**/*.*',
-		'!app/images/src/**/*',
 		'app/fonts/**/*'
 	], { base: 'app/', encoding: false })
-	.pipe(dest('dist'))
+		.pipe(dest('dist'))
 }
 
 async function buildhtml() {
@@ -140,12 +131,11 @@ function deploy() {
 function startwatch() {
 	watch([`app/styles/${preprocessor}/**/*`], { usePolling: true }, styles)
 	watch(['app/js/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts)
-	watch(['app/images/src/**/*'], { usePolling: true }, images)
 	watch([`app/**/*.{${fileswatch}}`], { usePolling: true }).on('change', browserSync.reload)
 }
 
-export { scripts, styles, images, deploy }
-export let assets = series(scripts, styles, images)
-export let build = series(cleandist, images, scripts, styles, buildcopy, buildhtml)
+export { scripts, styles, deploy }
+export let assets = series(scripts, styles)
+export let build = series(cleandist, scripts, styles, buildcopy, buildhtml)
 
-export default series(scripts, styles, images, parallel(browsersync, startwatch))
+export default series(scripts, styles, parallel(browsersync, startwatch))
