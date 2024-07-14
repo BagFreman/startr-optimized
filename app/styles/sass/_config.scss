@@ -2,6 +2,15 @@
 @import 'node_modules/bootstrap/scss/bootstrap-reboot.scss';
 @import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss';
 
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
 // Fonts
 $font: "CoreSansC-45Regular", sans-serif, Arial;
 
@@ -19,7 +28,6 @@ $font: "CoreSansC-45Regular", sans-serif, Arial;
 @include font('CoreSansC-45Regular', normal, 700, '../fonts/CoreSansC-65Bold.woff2');
 @include font('CoreSansC-45Regular', normal, 300, '../fonts/CoreSansC-35Light.woff2');
 @include font('CoreSansC-45Regular', normal, 500, '../fonts/CoreSansC-55Medium.woff2');
-
 
 @mixin img-resp() {
 	width: 100%;
