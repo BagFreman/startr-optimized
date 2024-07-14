@@ -1,0 +1,78 @@
+@import 'config';
+
+:root {
+  --accent: orange;
+  --text: #333;
+  --font: roboto-st, sans-serif;
+}
+
+.header,
+.footer,
+.main,
+.section {
+  position: relative;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+a:focus,
+input:focus {
+  outline: none;
+}
+
+body {
+  display: block;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 16px;
+  font-family: var(--font);
+  line-height: normal;
+  background-color: #ffffff;
+  min-width: 380px;
+  font-weight: 400;
+  color: var(--text);
+  
+  .container {
+}
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 0 10px;
+}
+
+@media screen and (max-width: 1700px) {}
+
+@media screen and (max-width: 1500px) {}
+
+@media screen and (max-width: 1400px) {}
+
+@media screen and (max-width: 1200px) {}
+
+@media screen and (max-width: 992px) {}
+
+@media screen and (max-width: 770px) {}
+
+@media screen and (max-width: 576px) {}
+
+@import 'blocks/**/*';

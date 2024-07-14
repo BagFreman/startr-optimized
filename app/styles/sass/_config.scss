@@ -1,0 +1,31 @@
+// Import bootstrap
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss';
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss';
+
+// Fonts
+$font: "CoreSansC-45Regular", sans-serif, Arial;
+
+@mixin font($fname, $fstyle, $fweight, $furl) {
+	@font-face {
+		font-family: $fname;
+		font-style: $fstyle;
+		font-weight: $fweight;
+		src: local($fname), url($furl) format('woff2');
+	}
+}
+
+@include font('CoreSansC-45Regular', normal, 400, '../fonts/CoreSansC-45Regular.woff2');
+@include font('CoreSansC-45Regular', normal, 900, '../fonts/CoreSansC-95Black.woff2');
+@include font('CoreSansC-45Regular', normal, 700, '../fonts/CoreSansC-65Bold.woff2');
+@include font('CoreSansC-45Regular', normal, 300, '../fonts/CoreSansC-35Light.woff2');
+@include font('CoreSansC-45Regular', normal, 500, '../fonts/CoreSansC-55Medium.woff2');
+
+
+@mixin img-resp() {
+	width: 100%;
+	height: 100%;
+}
+
+@mixin tr() {
+	transition: all .3s ease-in-out;
+}
