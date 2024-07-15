@@ -4,6 +4,7 @@ let preprocessor = 'sass', // Preprocessor (sass, less, styl); 'sass' also work 
 import pkg from 'gulp'
 const { src, dest, parallel, series, watch } = pkg
 
+import sourcemaps from 'gulp-sourcemaps';
 import browserSync from 'browser-sync'
 import bssi from 'browsersync-ssi'
 import ssi from 'ssi'
@@ -82,20 +83,23 @@ function scripts() {
 
 function styles() {
 	return src([`app/styles/*.*`, `!app/styles/_*.*`])
-		.pipe(eval(`${preprocessor}glob`)())
-		.pipe(eval(preprocessor)({ 'include css': true }))
-		.pipe(postCss([
-			autoprefixer({ grid: 'autoplace' }),
-			cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
-		]))
-		.pipe(concat('app.min.css'))
-		.pipe(dest('app/css'))
-		.pipe(browserSync.stream())
-}
+	  .pipe(eval(`${preprocessor}glob`)())
+	  .pipe(sourcemaps.init())
+	  .pipe(eval(preprocessor)({ 'include css': true }))
+	  .pipe(postCss([
+		 autoprefixer({ grid: 'autoplace' }),
+		 cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
+	  ]))
+	  .pipe(concat('app.min.css'))
+	  .pipe(sourcemaps.write('.'))
+	  .pipe(dest('app/css'))
+	  .pipe(browserSync.stream());
+ }
 
 function buildcopy() {
 	return src([
-		'{app/js,app/css}/*.min.*',
+		'app/js/*.min.*',
+		'app/css/app.min.css',
 		'app/images/**/*.*',
 		'app/fonts/**/*'
 	], { base: 'app/', encoding: false })
