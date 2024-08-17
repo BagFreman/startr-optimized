@@ -3,114 +3,114 @@
 
 <head>
 
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="">
+   <meta name="keywords" content="">
 
-	<title>Title</title>
+   <title>Title</title>
 
-	<link rel="icon" href="">
-	<!-- <link rel="stylesheet" href="css/app.min.css?var=1.0">
+   <link rel="icon" href="">
+   <!-- <link rel="stylesheet" href="css/app.min.css?var=1.0">
    <script defer src="js/app.min.js?var=1.0"></script> -->
 
 </head>
 
 <body>
 
-	<div class="wrapper">
+   <div class="wrapper">
 
-		<ul>
-			<li>
-				<a href="main.html">
-					<span class="text">Главная</span>
-					<span class="link"></span>
-				</a>
-			</li>
-		</ul>
+      <ul>
+         <li>
+            <a href="main.html">
+               <span class="text">Главная</span>
+               <span class="link"></span>
+            </a>
+         </li>
+      </ul>
 
-	</div>
+   </div>
 
-	<style>
-		body {
-			background-color: #fafafa;
-			font-family: Arial, Helvetica, sans-serif;
-			display: flex;
-			justify-content: center;
-		}
+   <style>
+      body {
+         background-color: #fafafa;
+         font-family: Arial, Helvetica, sans-serif;
+         display: flex;
+         justify-content: center;
+      }
 
-		.wrapper {
-			padding: 20px;
-			width: 800px;
-		}
+      .wrapper {
+         padding: 20px;
+         width: 800px;
+      }
 
-		h3 {
-			display: block;
-			margin-bottom: 20px;
-			font-size: 24px;
-			font-weight: normal;
-		}
+      h3 {
+         display: block;
+         margin-bottom: 20px;
+         font-size: 24px;
+         font-weight: normal;
+      }
 
-		ul {
-			margin: 0;
-			padding: 0;
-			margin-bottom: 50px;
-		}
+      ul {
+         margin: 0;
+         padding: 0;
+         margin-bottom: 50px;
+      }
 
-		ul li {
-			margin-bottom: 10px;
-			list-style-type: none;
-			border: 1px solid #efefef;
-			background-color: #fff;
-			border-radius: 5px;
-			transition: all .2s ease-in-out;
-		}
+      ul li {
+         margin-bottom: 10px;
+         list-style-type: none;
+         border: 1px solid #efefef;
+         background-color: #fff;
+         border-radius: 5px;
+         transition: all .2s ease-in-out;
+      }
 
-		ul li:hover {
-			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-			transition: all .2s ease-in-out;
-		}
+      ul li:hover {
+         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+         transition: all .2s ease-in-out;
+      }
 
-		ul li:hover a {
-			color: #d86b6b;
-			transition: all .2s ease-in-out;
-		}
+      ul li:hover a {
+         color: #d86b6b;
+         transition: all .2s ease-in-out;
+      }
 
-		li a {
-			width: 100%;
-			display: block;
-			padding: 15px 20px 15px 24px;
-			font-size: 14px;
-			font-weight: 700;
-			text-decoration: underline;
-			color: rgb(85, 85, 85);
-			text-decoration: none;
-		}
+      li a {
+         width: 100%;
+         display: block;
+         padding: 15px 20px 15px 24px;
+         font-size: 14px;
+         font-weight: 700;
+         text-decoration: underline;
+         color: rgb(85, 85, 85);
+         text-decoration: none;
+      }
 
-		li a span {
-			display: block;
-		}
+      li a span {
+         display: block;
+      }
 
-		li a span.link {
-			color: gray;
-			font-size: 12px;
-		}
+      li a span.link {
+         color: gray;
+         font-size: 12px;
+      }
 
-		li a span:nth-child(1) {
-			margin-bottom: 5px;
-		}
-	</style>
+      li a span:nth-child(1) {
+         margin-bottom: 5px;
+      }
+   </style>
 
-	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			var listItems = document.querySelectorAll('li');
-			listItems.forEach(function (item) {
-				var link = item.querySelector('a').getAttribute('href');
-				item.querySelector('.link').textContent = link;
-			});
-		});
-	</script>
+   <script>
+      document.addEventListener('DOMContentLoaded', function () {
+         var listItems = document.querySelectorAll('li');
+         listItems.forEach(function (item) {
+            var link = item.querySelector('a').getAttribute('href');
+            item.querySelector('.link').textContent = link;
+         });
+      });
+   </script>
 
 </body>
 

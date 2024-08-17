@@ -44,6 +44,7 @@
 		"webpack-stream": "^7.0.0"
 	},
 	"dependencies": {
-		"gulp-sourcemaps": "^3.0.0"
+		"gulp-sourcemaps": "^3.0.0",
+		"nunjucks": "^3.2.4"
 	}
 }
